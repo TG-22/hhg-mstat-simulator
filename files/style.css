@@ -1,0 +1,131 @@
+/*
+Leveling Monster Stats Simulator by TG22 (c) 2018-2019
+Stylesheet file
+
+*/
+
+div#main
+{
+	margin-left:10px;
+}
+
+div.commands
+{
+	padding : 8px;
+	margin : 5px;
+	border : 1px solid black;
+	border-radius : 8px;
+	float : left;
+}
+
+div.commands h1
+{
+	font-weight: bold;
+	font-size : 100%;
+	text-align: center;
+}
+
+div.commands input
+{
+	margin-top : 5px;
+	width: 200px;
+}
+
+.hidden_s
+{
+	display : none;
+}
+
+table.tgtable
+{
+	border-collapse: collapse;
+}
+
+td.odd
+{
+	background-color: #e1e1e1;
+}
+
+table.tgtable td, table.tgtable th
+{
+	border: 1px solid #222222;
+	padding : 5px;
+}
+
+input.tablein
+{	
+	width:95px;
+}
+
+div.chartcontainer
+{
+	float:left;
+	margin:5px;
+	min-height:100px;
+	min-width:100px;
+	height:400px;
+	width:47%;
+	resize: both;
+	overflow : auto;
+	padding:5px;
+	position: relative;
+	border:1px solid grey;
+	border-radius : 1px;
+	box-shadow: 6px 6px 3px grey;
+}
+
+div.chartcontainerRadar
+{
+	float:left;
+	margin:5px;
+	min-height:100px;
+	min-width:100px;
+	height:400px;
+	width:47%;
+	resize: both;
+	overflow : auto;
+	padding:5px;
+	position: relative;
+	border:1px solid grey;
+	border-radius : 1px;
+	box-shadow: 6px 6px 3px grey;
+}
+
+td.hidden_s
+{
+	color: #720000;
+	font-weight:bold;	
+}
+
+#notetags
+{
+	width:400px;
+	padding:8px;
+	border:1px solid grey;
+}
+
+div#lefttable {float:left;}
+div#righttable {float:left;margin-left:15px;}
+
+span.attackname { font-weight:bold; font-style:italic;}
+
+div.userinputdiv {border:1px solid #999999;border-radius:7px;box-shadow: 6px 6px 3px grey;padding:10px 12px;}
+span.redbold { font-weight:bold;color:#750000;}
+
+/****Character stats table******/
+
+table.ch_tab { border-collapse: collapse;}
+table.ch_tab td { padding:5px;border:1px solid #222222;}
+td.ch_td_name { font-weight:bold;background-color:#cccccc;color:#720000;font-size:110%;}
+td.ch_td_title {font-weight:bold;background-color:#ccccff;color:#000000;}
+td.ch_td_itmna {font-style:italic;background-color:#eeeeee;color:#aeae11;}
+td.ch_td_pupna {font-style:italic;background-color:#eeeeee;color:#ae1111;}
+td.ch_td_val {text-align:right;padding-right:7px;}
+
+/****Character itm change table*/
+
+table.itmchg {min-width:250px;border-collapse:collapse;}
+table.itmchg td {padding:6px;border:1px solid #222222;}
+td.ict_h {font-weight: bold;background-color:#ccccff;color:#000000;}
+td.itmtype {font-weight: bold;background-color:#bbbbff;color:#000000;}
+td.puptit {font-weight: bold;background-color:#ffbbbb;color:#000000;}

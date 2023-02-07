@@ -1,0 +1,114 @@
+<!--
+Leveling Monster Stats Simulator by TG22 (c) 2018-2019
+Index page file.
+-->
+
+<html>
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="files/style.css">
+<script src='files/libs/Chart.js'></script>
+<script src='files/libs/jquery-3.3.1.slim.min.js'></script>
+<script src='files/MonsterStatsSimulator.js'></script>
+<script src='files/CharactersAndGear.js'></script>
+<script src='files/mnstdb.js'></script>
+<script src='files/attdb.js'></script>
+<script src='files/chardb.js'></script>
+</head>
+<body>
+
+<div id='main'>
+
+
+<div id='import_mnst'></div>
+
+Please enter the max level of this monster : <br/>
+<input class='onch_tr' type='text' id='mon_max_lv' value='99' title='Value of the &lt;max level: X&gt; notetag.' /><br/><br/>
+
+<div id='mnst_name'></div>
+
+<div id='lefttable'>
+
+<table class='tgtable'>
+<tr><th>Stat</th><th>Base Value</th><th>Base% inc./Level</th><th>Increase Value/lv</th><th class='hidden_s'>Simplified :</th></tr>
+<tr><th>Max HP</th>
+<td><input class='tablein onch_tr' type='text' id='mhp_b' title='MHP entered in RPGMaker' /></td>
+<td><input class='tablein onch_tr' type='text' id='mhp_pi' title="Value of the &lt;mhp: +X% per level&gt; notetag (default 15)" />%</td>
+<td><input class='tablein onch_tr' type='text' id='mhp_ri' title="Value of the &lt;mhp: +X per level&gt; notetag (default 50)" /></td><td id='mhp_h' class='hidden_s' ></td></tr>
+<tr><th>Max MP</th>
+<td><input class='tablein onch_tr' type='text' id='mmp_b' title='MMP entered in RPGMaker' /></td>
+<td><input class='tablein onch_tr' type='text' id='mmp_pi' title="Value of the &lt;mmp: +X% per level&gt; notetag (default 10)" />%</td>
+<td><input class='tablein onch_tr' type='text' id='mmp_ri' title="Value of the &lt;mmp: +X per level&gt; notetag (default 10)" /></td><td id='mmp_h' class='hidden_s' ></td></tr>
+<tr><th>ATK</th>
+<td><input class='tablein onch_tr' type='text' id='atk_b' title='ATK entered in RPGMaker' /></td>
+<td><input class='tablein onch_tr' type='text' id='atk_pi' title="Value of the &lt;atk: +X% per level&gt; notetag (default 5)" />%</td>
+<td><input class='tablein onch_tr' type='text' id='atk_ri' title="Value of the &lt;atk: +X per level&gt; notetag (default 5)" /></td><td id='atk_h' class='hidden_s' ></td></tr>
+<tr><th>DEF</th>
+<td><input class='tablein onch_tr' type='text' id='def_b' title='DEF entered in RPGMaker' /></td>
+<td><input class='tablein onch_tr' type='text' id='def_pi' title="Value of the &lt;def: +X% per level&gt; notetag (default 5)" />%</td>
+<td><input class='tablein onch_tr' type='text' id='def_ri' title="Value of the &lt;def: +X per level&gt; notetag (default 5)" /></td><td id='def_h' class='hidden_s' ></td></tr>
+<tr><th>MAT</th>
+<td><input class='tablein onch_tr' type='text' id='mat_b' title='MAT entered in RPGMaker' /></td>
+<td><input class='tablein onch_tr' type='text' id='mat_pi' title="Value of the &lt;mat: +X% per level&gt; notetag (default 5)" />%</td>
+<td><input class='tablein onch_tr' type='text' id='mat_ri' title="Value of the &lt;mat: +X per level&gt; notetag (default 5)" /></td><td id='mat_h' class='hidden_s' ></td></tr>
+<tr><th>MDF</th>
+<td><input class='tablein onch_tr' type='text' id='mdf_b' title='MDF entered in RPGMaker' /></td>
+<td><input class='tablein onch_tr' type='text' id='mdf_pi' title="Value of the &lt;mdf: +X% per level&gt; notetag (default 5)" />%</td>
+<td><input class='tablein onch_tr' type='text' id='mdf_ri' title="Value of the &lt;mdf: +X per level&gt; notetag (default 5)" /></td><td id='mdf_h' class='hidden_s' ></td></tr>
+<tr><th>AGI</th>
+<td><input class='tablein onch_tr' type='text' id='agi_b' title='AGI entered in RPGMaker' /></td>
+<td><input class='tablein onch_tr' type='text' id='agi_pi' title="Value of the &lt;agi: +X% per level&gt; notetag (default 5)" />%</td>
+<td><input class='tablein onch_tr' type='text' id='agi_ri' title="Value of the &lt;agi: +X per level&gt; notetag (default 5)" /></td><td id='agi_h' class='hidden_s' ></td></tr>
+<tr><th>LUK</th>
+<td><input class='tablein onch_tr' type='text' id='luk_b' title='LUK entered in RPGMaker' /></td>
+<td><input class='tablein onch_tr' type='text' id='luk_pi' title="Value of the &lt;luk: +X% per level&gt; notetag (default 5)" />%</td>
+<td><input class='tablein onch_tr' type='text' id='luk_ri' title="Value of the &lt;luk: +X per level&gt; notetag (default 5)" /></td><td id='luk_h' class='hidden_s' ></td></tr>
+<tr><th>Exp</th>
+<td><input class='tablein onch_tr' type='text' id='exp_b' title='Exp entered in RPGMaker' /></td>
+<td><input class='tablein onch_tr' type='text' id='exp_pi' title="Value of the &lt;gold: +X% per level&gt; notetag (default 5)" />%</td>
+<td><input class='tablein onch_tr' type='text' id='exp_ri' title="Value of the &lt;gold: +X per level&gt; notetag (default 10)" /></td><td id='exp_h' class='hidden_s' ></td></tr>
+<tr><th>Gold</th>
+<td><input class='tablein onch_tr' type='text' id='gold_b' title='Gold entered in RPGMaker' /></td>
+<td><input class='tablein onch_tr' type='text' id='gold_pi' title="Value of the &lt;exp: +X% per level&gt; notetag (default 5)" />%</td>
+<td><input class='tablein onch_tr' type='text' id='gold_ri' title="Value of the &lt;exp: +X per level&gt; notetag (default 5)" /></td><td id='gold_h' class='hidden_s' ></td></tr>
+
+
+
+</table><br/>
+</div>
+
+<div id='righttable'>
+</div>
+
+<div style='clear:both;'></div>
+<div class='commands'>
+<h1>Monsters options</h1>
+<input type='button' id='testme1' value='Monster stats' /><br/>
+<input type='button' id='testme8' value='Compare Monsters' /><br/>
+<input type='button' id='testme3' value='View Notetags' /><br/>
+<input type='button' id='testme12' value='Battle statistics' /><br/>
+</div>
+<div class='commands'>
+<h1>Attack simulations</h1>
+<input type='button' id='testme2'  value='Monster Attack simulation' /><br/>
+<input type='button' id='testme4'  value='Monster Defense simulation' /><br/>
+<input type='button' id='testme9'  value='Monster Ailment simulation' /><br/>
+<input type='button' id='testme10' value='Characters attacks comparison' /><br/>
+<input type='button' id='testme11' value='Speed comparison' /><br/>
+</div>
+<div class='commands'>
+<h1>Characters options</h1>
+<input type='button' id='testme6'  value='Characters stats' /><br/>
+<input type='button' id='testme7'  value='Characters radar' /><br/>
+<input type='button' id='testme5'  value='Characters equipments' /><br/>
+</div>
+
+<div style='clear:both;'></div>
+
+<div id='simulation_output'></div>
+
+
+
+</div>
+</body>
+</html>
